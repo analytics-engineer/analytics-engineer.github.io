@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ИП Горин Игорь — Data Engineer / Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    background: #0b0f14;
+    color: #f2f6f3;
+  }
+  .container { display: flex; min-height: 100vh; }
+  .sidebar {
+    width: 300px; background: #111722; padding: 20px;
+    border-right: 1px solid #233042; display: flex;
+    flex-direction: column; justify-content: space-between;
+  }
+  .profile-name { font-size: 22px; font-weight: 700; margin-top: 20px; }
+  .profile-role { font-size: 16px; color: #a8b0bd; margin-top: 15px; }
+  .profile-desc { font-size: 14px; color: #cfd4de; margin-top: 20px; line-height: 1.8; }
+  .contacts a { color: #7dcfff; text-decoration: none; display: block; margin-bottom: 5px; }
+  .main { flex: 1; padding: 30px; }
+  .section {
+    margin-bottom: 40px; padding: 20px;
+    border: 1px solid #21242a; border-radius: 16px;
+    background: #14161a;
+  }
+  .tech span {
+    display: inline-block; background: #172132;
+    border: 1px solid #233042; border-radius: 6px;
+    padding: 4px 8px; font-size: 12px; margin: 3px 3px 0 0;
+  }
+  .lang-switch {
+    position: fixed; top: 20px; right: 20px;
+    display: flex; gap: 6px; z-index: 999;
+  }
+  .btn-lang {
+    padding: 6px 10px; font-size: 13px;
+    border: 1px solid #233042; background: #111722;
+    color: #f2f6f3; border-radius: 6px; cursor: pointer;
+  }
+  .btn-lang.active { background: #1b2332; border-color: #7dcfff; }
+</style>
+</head>
+
+<body>
+<div class="lang-switch">
+  <button id="btn-ru" class="btn-lang">RU</button>
+  <button id="btn-en" class="btn-lang">EN</button>
+</div>
+
+<div class="container">
+  <div class="sidebar">
+    <div>
+      <div class="profile-name" id="name"></div>
+      <div class="profile-role">Data Engineer / Analyst</div>
+      <div class="profile-desc" id="desc"></div>
+    </div>
+    <div class="contacts">
+      <a href="mailto:melin.igor@gmail.com">melin.igor@gmail.com</a>
+      <a href="https://t.me/electronic_555">Telegram</a>
+      <a href="https://github.com/electrokomplect">GitHub</a>
+    </div>
+  </div>
+
+  <div class="main">
+    <section class="section" id="about1"></section>
+    <section class="section" id="about2"></section>
+    <section class="section" id="skills"></section>
+  </div>
+</div>
+
+<script>
+const content = {
+  ru: {
+    name: "ИП Горин Игорь",
+    desc: "Проектирую DWH, строю стабильные ETL/ELT, ускоряю BI и внедряю DataOps.",
+    about1: "Помогаю компаниям превратить хаотичные данные в завершённую систему аналитики — от сырых ETL до стабильных пайплайнов, автоматизированного DWH и наглядных дашбордов.",
+    about2: "Проект начинается с глубокого погружения: анализ цели, понимание данных, формулировка KPI. Затем — архитектура DWH и ETL-конвейеры, автоматизация с CI/CD, визуализация и мониторинг.",
+    skills: "<b>Зоны компетенции:</b><br>— ETL, оркестрация, контроль качества данных<br>— Проектирование DWH<br>— BI-отчётность<br>— DataOps / DevOps подходы"
+  },
+  en: {
+    name: "Igor Gorin",
+    desc: "Designing data warehouses, building stable ETL/ELT, accelerating BI, and implementing DataOps.",
+    about1: "I help companies turn chaotic data into a complete analytics system — from raw ETL to stable pipelines, automated DWH, and dashboards.",
+    about2: "Projects start with deep immersion: goal analysis, data understanding, KPI definition. Then — DWH architecture, ETL pipelines, CI/CD automation, and visualization.",
+    skills: "<b>Core Expertise:</b><br>— ETL, orchestration, data quality<br>— Data warehouse design<br>— BI reporting<br>— DataOps / DevOps practices"
+  }
+};
+
+function setLang(lang) {
+  localStorage.setItem("lang", lang);
+  const t = content[lang];
+  document.getElementById("name").textContent = t.name;
+  document.getElementById("desc").textContent = t.desc;
+  document.getElementById("about1").textContent = t.about1;
+  document.getElementById("about2").textContent = t.about2;
+  document.getElementById("skills").innerHTML = t.skills;
+  document.getElementById("btn-ru").classList.toggle("active", lang==="ru");
+  document.getElementById("btn-en").classList.toggle("active", lang==="en");
+}
+
+function initLang() {
+  const saved = localStorage.getItem("lang");
+  const browser = navigator.language.startsWith("en") ? "en" : "ru";
+  const lang = saved || browser;
+  setLang(lang);
+}
+
+document.getElementById("btn-ru").onclick = () => setLang("ru");
+document.getElementById("btn-en").onclick = () => setLang("en");
+initLang();
+</script>
+</body>
+</html>
