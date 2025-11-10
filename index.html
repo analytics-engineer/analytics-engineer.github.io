@@ -1,351 +1,101 @@
-<style>
-  body {
-    font-family: Inter, system-ui, sans-serif;
-    margin: 0; 
-    padding: 0;
-    background: #0b0f14;
-    color: #f2f6f3;
-  }
-
-  .container {
-    display: flex;
-    min-height: 100vh;
-  }
-
-  .sidebar {
-    width: 300px;
-    background: #111722;
-    padding: 20px;
-    border-right: 1px solid #233042;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  .sidebar h1 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .status {
-    display: inline-block;
-    background: #1b2332;
-    border: 1px solid #233042;
-    border-radius: 8px;
-    padding: 5px 10px;
-    font-size: 13px;
-    margin-bottom: 15px;
-  }
-
-  .tech {
-    margin-top: 15px;
-  }
-
-  .tech span {
-    display: inline-block;
-    background: #172132;
-    border: 1px solid #233042;
-    border-radius: 6px;
-    padding: 4px 8px;
-    font-size: 12px;
-    margin: 3px 3px 0 0;
-  }
-
-  .contacts a {
-    display: block;
-    color: #7dcfff;
-    text-decoration: none;
-    margin-bottom: 5px;
-    font-size: 14px;
-  }
-
-  .main {
-    flex: 1;
-    padding: 30px;
-    overflow-x: hidden;
-  }
-
-  h2 {
-    margin-top: 0;
-    color: #7dcfff;
-  }
-
-  .section {
-    margin-bottom: 40px;
-  }
-
-  .section ul {
-    padding-left: 20px;
-  }
-
-  .section li {
-    margin-bottom: 8px;
-  }
-</style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0b0c10;
-    --card: #14161a;
-    --text: #f2f6f3;
-    --muted: #a8b0bd;
-    --acc: #5ac8fa;
-  }
-
-  * {
-    box-sizing: border-box
+    --bg1: #0b0f14;
+    --bg2: #111722;
+    --accent1: #7dcfff;
+    --accent2: #92b951;
+    --accent3: #d66238;
   }
 
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.6 Inter, system-ui
-  }
-
-  a {
-    color: var(--acc);
-    text-decoration: none
-  }
-
-  a:hover {
-    opacity: .9
-  }
-
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 24px
-  }
-
-  h1 {
-    font-size: 44px;
-    line-height: 1.1;
-    margin: 8px 0 12px
-  }
-
-  h2 {
-    font-size: 24px;
-    margin: 28px 0 12px
-  }
-
-  .muted {
-    color: var(--muted)
-  }
-
-  .section {
-    margin: 28px 0;
-    padding: 20px;
-    border: 1px solid #21242a;
-    border-radius: 16px;
-    background: var(--card)
-  }
-
-  .row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 10px 16px;
-    border-radius: 12px;
-    border: 1px solid #2a2f36;
-    background: #1a1e24
-  }
-
-  .btn.primary {
-    background: var(--acc);
-    color: #001018;
-    border-color: transparent;
-    font-weight: 600
-  }
-
-  .chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 8px
-  }
-
-  .chip {
-    border: 1px solid #2a2f36;
-    border-radius: 999px;
-    padding: 6px 10px;
-    font-size: 14px;
-    background: #0f1115
-  }
-
-  .card {
-    flex: 1 1 280px;
-    padding: 16px;
-    border: 1px solid #20242a;
-    border-radius: 14px;
-    background: #0f1115
-  }
-
-  .logos {
-    display: flex;
-    gap: 22px;
-    flex-wrap: wrap;
-    align-items: center;
-    opacity: .85
-  }
-
-  .hero {
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(120deg, var(--bg1), var(--bg2));
+    background-size: 200% 200%;
+    color: var(--accent1);
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    margin: 8px 0 18px
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
 
-  .profile-block {
-  padding: 8px 0;
-}
-.profile-name {
-  margin-top: 20px;
-  font-size: 22px;
-  font-weight: 700;
-}
-.profile-role {
-  font-size: 16px;
-  color: #a8b0bd;
-  margin-top: 15px;
-}
-.profile-desc {
-  font-size: 14px;
-  color: #cfd4de;
-  margin-top: 20px;
-  line-height: 2.0;
-}
+  .title {
+    font-size: 80px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--accent1); /* всегда видно */
+    position: relative;
+  }
+
+  /* создаём поверх градиентный слой, он будет двигаться */
+  .title::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--accent1), var(--accent2), var(--accent3), var(--accent1));
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    animation: colorShift 120s linear infinite;
+    animation-delay: 10s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes colorShift {
+    0% {
+      opacity: 1;
+      background-position: 0% 50%;
+    }
+    100% {
+      opacity: 1;
+      background-position: 100% 50%;
+    }
+  }
+
+  .lang {
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+    gap: 40px;
+  }
+
+  .lang a {
+    text-decoration: none;
+    color: var(--accent1);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 2px;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+  }
+
+  .lang a:hover {
+    color: var(--accent3);
+    text-shadow: 0 0 12px var(--accent3);
+  }
+
+  @media (max-width: 768px) {
+    .title { font-size: 44px; }
+    .lang a { font-size: 18px; }
+  }
 </style>
-
-<head>
-  <!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=104353465', 'ym');
-
-    ym(104353465, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/104353465" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
 </head>
-<div class="container">
-
-  <div class="sidebar">
-
-    <div class="profile-block">
-      <div class="profile-name">ИП Горин Игорь</div>
-      <div class="profile-role">Data Engineer / Analyst</div>
-      <div class="profile-desc">
-        Проектирую DWH, строю стабильные ETL/ELT, ускоряю BI и внедряю DataOps.
-      </div>
-    </div>
-
-    <div class="contacts">
-      <a href="mailto:melin.igor@gmail.com">melin.igor@gmail.com</a>
-      <a href="https://t.me/electronic_555">Telegram</a>
-      <a href="https://github.com/electrokomplect">GitHub</a>
-    </div>
+<body>
+  <div class="title" data-text="Analytics Engineer">Analytics Engineer</div>
+  <div class="lang">
+    <a href="ru.html">RU</a>
+    <a href="en.html">EN</a>
   </div>
-
-
-  <div class="main">
-    <section class="section">
-      <p style="margin:0; font-size:15px; line-height:1.6;">
-        Помогаю компаниям превратить хаотичные данные в завершённую систему аналитики —
-        от сырых ETL до стабильных пайплайнов, автоматизированного DWH и наглядных дашбордов.
-        Строю целостную систему, в которой данные обрабатываются, хранятся и визуализируются без разрывов.
-        Цель — дать клиенту полный спектр услуг под ключ, чтобы он мог обратиться в одно окно и не тратить время на
-        координацию подрядчиков.
-      </p>
-    </section>
-    <section class="section">
-      <p style="margin:0; font-size:15px; line-height:1.6;">
-        Проект начинается с глубокого погружения: анализ цели, понимание данных, формулировка KPI.
-        Затем — архитектура DWH и ETL-конвейеры, автоматизация с CI/CD, визуализация и мониторинг.
-        Завершаем передачей системы под ключ, готовой к эксплуатации и масштабированию.
-      </p>
-    </section>
-    <section class="section">
-      <h3 class="head">
-        Зоны компетенции
-      </h3>
-      <ul>
-        <li>Построение и автоматизация конвейеров данных: оркестрация, интеграция, контроль качества</li>
-        <li>Проектирование и внедрение хранилищ и витрин данных для аналитики</li>
-        <li>Разработка и оптимизация BI-отчетности</li>
-        <li>DevOps/DataOps подходы для стабильности и масштабирования аналитики</li>
-      </ul>
-    </section>
-
-    <div class="section">
-      <h3 class="head">
-        Проекты в компаниях
-      </h3>
-      Газпром * РЖД * Силовые машины * Россети * Сбер * Heineken * Субъект РФ * Росатом
-    </div>
-
-
-    <section class="section">
-      <h3>
-        <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-          <path
-            d="M21.67 18.17l-6.36-6.36a6.5 6.5 0 01-8.49-8.49l4.24 4.24 2.12-2.12L8.94 1.2a6.5 6.5 0 018.49 8.49l6.36 6.36-2.12 2.12zM3 21l5.5-5.5"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        Стек технологий
-      </h3>
-      <div>Orchestration / ETL</div>
-      <div class="tech" style="margin-top:5px">
-        <span class="chip">Airflow</span><span class="chip">dbt</span><span class="chip">Python</span><span
-          class="chip">Spark</span><span class="chip">Python</span><span class="chip">Kafka</span>
-      </div>
-      <div style="margin-top:10px">Storage / DWH</div>
-      <div class="tech" style="margin-top:5px">
-        <span class="chip">Postgres</span><span class="chip">ClickHouse</span><span class="chip">SAP HANA</span><span
-          class="chip">Fabric/Databricks</span> <span class="chip">BigQuery</span><span class="chip">Snowflake</span>
-      </div>
-      <div style="margin-top:10px">BI</div>
-      <div class="tech" style="margin-top:5px">
-        <span class="chip">Power BI</span><span class="chip">SAP SAC</span><span class="chip">Superset</span>
-        <span class="chip">DataLens</span><span class="chip">Looker</span>
-      </div>
-      <div style="margin-top:10px">DevOps / DataOps</div>
-      <div class="tech" style="margin-top:5px">
-        <span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">Linux</span>
-      </div>
-    </section>
-
-    <div class="section">
-      <h3 class="head">
-        Публикации
-      </h3>
-      <ul>
-        <li>
-          [Habr: Аналитика рынка профессии с историей] <a href="https://habr.com/ru/post/716374/">Link</a>
-        </li>
-        <li>
-          [Habr: Аналитика профессии в три клика] <a href="//habr.com/ru/post/658895/">Link</a>
-        </li>
-        <li>
-          [Medium: Power BI ↔ SAP HANA] <a href="
-            https://medium.com/@gorin.igor/how-to-connect-to-sap-hana-from-power-bi-6376b9df4747">Link</a>
-        </li>
-      </ul>
-    </div>
-
-
-  </div>
-</div>
+</body>
+</html>
